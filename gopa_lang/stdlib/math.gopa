@@ -1,0 +1,22 @@
+
+
+define sqrt with x
+  return python.call "math.sqrt" with x
+end
+
+define pow with base, exp
+  return python.call "math.pow" with base, exp
+end
+
+define sin with x
+  return python.call "math.sin" with x
+end
+
+define cos with x
+  return python.call "math.cos" with x
+end
+
+define tan with x
+  return python.call "math.tan" with x
+end
+

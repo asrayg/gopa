@@ -1,0 +1,15 @@
+server on port 3000
+  when get "/"
+    return "hello world"
+  end
+  when add "/score"
+    name is request.body["name"]
+    score is request.body["score"]
+    return object
+      status is "saved"
+      user is name
+      score is score
+    end
+  end
+end
+

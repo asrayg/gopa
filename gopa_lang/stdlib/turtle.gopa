@@ -1,0 +1,10 @@
+
+
+define forward with steps
+  say "Turtle forward " and steps
+end
+
+define turn with degrees
+  say "Turtle turn " and degrees
+end
+

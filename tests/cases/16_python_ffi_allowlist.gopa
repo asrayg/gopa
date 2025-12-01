@@ -1,0 +1,3 @@
+result is python.call "math.sqrt" with 16
+say result
+

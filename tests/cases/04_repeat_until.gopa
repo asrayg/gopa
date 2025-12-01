@@ -1,0 +1,6 @@
+x is 0
+repeat until x equals 3
+  say x
+  x increase by 1
+end
+

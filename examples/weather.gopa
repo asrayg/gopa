@@ -1,0 +1,4 @@
+city is "Ames"
+weather is get "https://api.weather.com/today" using city is city
+say "Temperature in " and city and " is " and weather.temp
+

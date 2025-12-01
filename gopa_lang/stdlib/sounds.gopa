@@ -1,0 +1,6 @@
+
+
+define play with sound_name
+  say "Playing sound: " and sound_name
+end
+

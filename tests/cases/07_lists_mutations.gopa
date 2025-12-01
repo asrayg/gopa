@@ -1,0 +1,7 @@
+numbers is [1, 2, 3]
+say numbers at 0
+add 4 to numbers
+say numbers at 3
+remove 2 from numbers
+say len numbers
+

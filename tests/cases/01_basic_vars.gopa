@@ -1,0 +1,7 @@
+x is 4
+say x
+x becomes 5
+say x
+y is "hello"
+say y
+

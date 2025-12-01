@@ -1,0 +1,4 @@
+cron "every day at 09:00"
+  say "good morning"
+end
+

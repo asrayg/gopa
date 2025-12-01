@@ -1,0 +1,4 @@
+[server] registered on port 3000
+[server] registered GET /
+[server] registered POST /score
+

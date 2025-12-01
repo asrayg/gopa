@@ -1,0 +1,7 @@
+numbers is [1, 2, 3, 4, 5]
+big is filter numbers where item is greater than 3
+say big at 0
+say big at 1
+doubled is map numbers using item times 2
+say doubled at 0
+

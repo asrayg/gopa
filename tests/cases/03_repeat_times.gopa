@@ -1,0 +1,6 @@
+i is 0
+repeat 3 times
+  say i
+  i increase by 1
+end
+

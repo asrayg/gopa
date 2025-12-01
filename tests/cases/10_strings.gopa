@@ -1,0 +1,8 @@
+text is "hello world"
+words is split text by " "
+say words at 0
+joined is join words with ", "
+say joined
+new_text is replace "o" with "a" in text
+say new_text
+

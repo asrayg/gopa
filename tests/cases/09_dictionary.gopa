@@ -1,0 +1,9 @@
+scores is dictionary
+  "asray" is 100
+  "emre" is 95
+end
+
+say scores["asray"]
+scores["new"] becomes 80
+say scores["new"]
+

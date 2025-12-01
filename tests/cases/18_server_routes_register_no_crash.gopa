@@ -1,0 +1,9 @@
+server on port 3000
+  when get "/"
+    say "hello world"
+  end
+  when add "/score"
+    return "ok"
+  end
+end
+

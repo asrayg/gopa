@@ -1,0 +1,6 @@
+
+
+define bar_chart with data
+  show table with headers ["Value"] and data rows data
+end
+

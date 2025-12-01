@@ -1,0 +1,2 @@
+[cron] registered 'every day at 09:00'
+

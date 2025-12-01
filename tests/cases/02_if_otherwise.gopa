@@ -1,0 +1,7 @@
+x is 5
+if x is greater than 3 then
+  say "big"
+otherwise
+  say "small"
+end
+

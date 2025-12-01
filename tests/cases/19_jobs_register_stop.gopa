@@ -1,0 +1,5 @@
+job "heartbeat" every 5 seconds do
+  say "still alive"
+end
+stop job "heartbeat"
+

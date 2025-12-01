@@ -1,0 +1,4 @@
+result is get "https://api.com/test" using
+end
+say result
+

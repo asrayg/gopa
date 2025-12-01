@@ -1,0 +1,4 @@
+say "Hello, Gopa!"
+name is "World"
+say "Hello, " and name
+

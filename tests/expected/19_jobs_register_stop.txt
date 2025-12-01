@@ -1,0 +1,3 @@
+[job] registered 'heartbeat' every 5.0 seconds
+[job] stop 'heartbeat'
+

@@ -1,0 +1,7 @@
+define double with x
+  return x times 2
+end
+
+result is double 5
+say result
+

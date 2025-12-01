@@ -1,0 +1,4 @@
+canvas is create canvas 400 by 400
+draw circle at 100, 100 with size 50 and color "red"
+draw rectangle from 0, 0 to 100, 50 with color "blue"
+

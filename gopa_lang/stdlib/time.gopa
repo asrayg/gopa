@@ -1,0 +1,10 @@
+
+
+define now
+  return python.call "datetime.datetime.now" with
+end
+
+define sleep with seconds
+  wait seconds seconds
+end
+

@@ -1,0 +1,5 @@
+x is random
+if x is at least 0 and x is at most 1 then
+  say "random works"
+end
+

@@ -1,0 +1,11 @@
+define factorial with n
+  if n equals 0 then
+    return 1
+  otherwise
+    return n times factorial n minus 1
+  end
+end
+
+result is factorial 5
+say result
+

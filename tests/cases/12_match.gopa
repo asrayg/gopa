@@ -1,0 +1,10 @@
+temp is 50
+match temp
+  when 0 to 30
+    say "cold"
+  when 31 to 70
+    say "nice"
+  when 71 to 100
+    say "hot"
+end
+
