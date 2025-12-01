@@ -1,4 +1,4 @@
-# ruff: noqa: F405
+# ruff: noqa: F403, F405
 """Interpreter for Gopa AST."""
 
 import sys

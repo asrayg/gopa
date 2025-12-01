@@ -1,3 +1,4 @@
+# ruff: noqa: F821
 """CLI entry point for Gopa."""
 
 import sys

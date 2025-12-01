@@ -1,3 +1,4 @@
+ # ruff: noqa: F821
 """Graphics, events, and timer stubs for Gopa."""
 
 import time
