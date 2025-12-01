@@ -2,19 +2,48 @@
 
 ## Installation
 
-### From Source
+### Option 1: Install Script (Recommended)
+
+**macOS / Linux:**
+```bash
+git clone https://github.com/gopa-lang/gopa.git
+cd gopa
+bash install.sh
+```
+
+**Windows:**
+```powershell
+git clone https://github.com/gopa-lang/gopa.git
+cd gopa
+.\install.bat
+```
+
+After installation, the `gopa` command is available globally.
+
+### Option 2: Use Directly (No Install)
+
+Just clone and use the `gopa` script directly:
 
 ```bash
 git clone https://github.com/gopa-lang/gopa.git
 cd gopa
-pip install -e .
+./gopa test
+./gopa run examples/hello.gopa
 ```
 
-### Development Installation
+**Windows:**
+```powershell
+git clone https://github.com/gopa-lang/gopa.git
+cd gopa
+python gopa test
+python gopa run examples\hello.gopa
+```
+
+### Verify
 
 ```bash
-pip install -e ".[network]"
-pip install -r requirements-dev.txt
+gopa --help
+gopa test
 ```
 
 ## Your First Program

@@ -45,4 +45,6 @@ env/
 .coverage
 htmlcov/
 .tox/
+venv/
+env/
 

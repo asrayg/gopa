@@ -22,7 +22,6 @@ maintainers can delete comments, close issues, or ban users if you're making the
 
 if something happens:
 
-- email: security@gopa.dev (placeholder)
 - or open a private report if the platform supports it
 
 ## scope

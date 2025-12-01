@@ -92,6 +92,18 @@ class Lexer:
 
         word = self.text[start_pos:self.pos].lower()
 
+        if word == "times":
+            saved_pos = self.pos
+            saved_col = self.column
+            peek_char = self.current_char()
+            if peek_char in (' ', '\n', None):
+                lookback_start = max(0, start_pos - 20)
+                context_before = self.text[lookback_start:start_pos].lower().strip()
+                if context_before.endswith(('repeat', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')):
+                    if peek_char in (' ', '\n', None):
+                        return Token(TokenType.TIMES, None, self.line, start_col)
+            return Token(TokenType.TIMES_OP, None, self.line, start_col)
+
         if word == "does" and self.peek() == ' ':
             saved_pos = self.pos
             saved_col = self.column
@@ -229,7 +241,6 @@ class Lexer:
             "not": TokenType.NOT,
             "plus": TokenType.PLUS,
             "minus": TokenType.MINUS,
-            "times": TokenType.TIMES_OP,
             "increase": TokenType.INCREASE,
             "decrease": TokenType.DECREASE,
             "yes": TokenType.YES,

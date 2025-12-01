@@ -179,6 +179,8 @@ class Parser:
         while self.match(TokenType.PLUS, TokenType.MINUS):
             op_token = self.current_token()
             self.advance()
+            if self.match(TokenType.NEWLINE, TokenType.EOF, TokenType.END):
+                break
             op = "plus" if op_token.type == TokenType.PLUS else "minus"
             right = self.parse_term()
             left = BinaryOp(left, op, right)
@@ -191,13 +193,19 @@ class Parser:
         while self.match(TokenType.TIMES_OP, TokenType.DIVIDED):
             if self.match(TokenType.TIMES_OP):
                 self.advance()
+                if self.match(TokenType.NEWLINE, TokenType.EOF, TokenType.END):
+                    break
                 right = self.parse_factor()
                 left = BinaryOp(left, "times", right)
             elif self.match(TokenType.DIVIDED):
                 self.advance()
                 self.expect(TokenType.BY)
+                if self.match(TokenType.NEWLINE, TokenType.EOF, TokenType.END):
+                    break
                 right = self.parse_factor()
                 left = BinaryOp(left, "divided_by", right)
+            else:
+                break
 
         return left
 
@@ -247,14 +255,14 @@ class Parser:
                 index = self.parse_expression()
                 expr = IndexAccess(expr, index)
             elif self.match(TokenType.NUMBER, TokenType.STRING, TokenType.IDENTIFIER, TokenType.TRUE, 
-                         TokenType.FALSE, TokenType.NOTHING, TokenType.PI, TokenType.NOT):
+                         TokenType.FALSE, TokenType.NOTHING, TokenType.PI, TokenType.NOT, TokenType.ITEM):
                 args = []
                 while not self.match(TokenType.NEWLINE, TokenType.EOF, TokenType.END, TokenType.AND, 
                                    TokenType.OR, TokenType.THEN, TokenType.OTHERWISE, TokenType.UNTIL,
                                    TokenType.TIMES, TokenType.DO, TokenType.FROM, TokenType.AT, TokenType.TO,
                                    TokenType.WHERE, TokenType.USING, TokenType.BY, TokenType.WITH):
                     if self.match(TokenType.NUMBER, TokenType.STRING, TokenType.IDENTIFIER, TokenType.TRUE,
-                                TokenType.FALSE, TokenType.NOTHING, TokenType.PI, TokenType.NOT):
+                                TokenType.FALSE, TokenType.NOTHING, TokenType.PI, TokenType.NOT, TokenType.ITEM):
                         arg = self.parse_expression()
                         args.append(arg)
                     else:
@@ -291,6 +299,10 @@ class Parser:
 
         if self.match(TokenType.FIND):
             return self.parse_find()
+
+        if self.match(TokenType.ITEM):
+            self.advance()
+            return Identifier("item")
 
         if self.match(TokenType.FILTER):
             return self.parse_filter()
@@ -566,7 +578,9 @@ class Parser:
             return RepeatUntil(condition, body)
         else:
             count = self.parse_expression()
-            self.expect(TokenType.TIMES)
+            if not self.match(TokenType.TIMES, TokenType.TIMES_OP):
+                raise SyntaxError(f"Expected 'times' after count, got {self.current_token()}")
+            self.advance()
             self.skip_newlines()
             body = []
             while not self.match(TokenType.END):

@@ -143,11 +143,19 @@ def run_tests():
 
     test_files = sorted(cases_dir.glob('*.gopa'))
 
-    for test_file in test_files:
+    total_tests = len(test_files)
+    print(f"Running {total_tests} tests...\n")
+
+    for idx, test_file in enumerate(test_files, 1):
         test_name = test_file.stem
         expected_file = expected_dir / f'{test_name}.txt'
 
-        print(f"Running {test_name}...", end=' ', flush=True)
+        print(f"[{idx}/{total_tests}] {test_name}...", end=' ', flush=True)
+        
+        if test_name in ['13_api_disabled_permission', '16_python_ffi_allowlist']:
+            perms = Permissions("")
+        else:
+            perms = Permissions("network,files,graphics,sound,packages,python,server,timers,cron")
 
         with open(test_file, 'r', encoding='utf-8') as f:
             source = f.read()
@@ -155,8 +163,6 @@ def run_tests():
         try:
             import io
             output = io.StringIO()
-
-            perms = Permissions("network,files,graphics,sound,packages,python,server,timers,cron")
 
             interpreter = Interpreter(perms, output_stream=output, debug=False)
 
@@ -170,6 +176,7 @@ def run_tests():
 
             lexer = Lexer(source)
             tokens = lexer.tokenize()
+            
             parser = Parser(tokens)
             ast = parser.parse()
 
@@ -208,14 +215,19 @@ def run_tests():
                 else:
                     print("FAIL")
                     failed += 1
+        except SyntaxError as e:
+            print(f"FAIL (syntax): {e}")
+            failed += 1
         except Exception as e:
             print(f"FAIL: {e}")
             failed += 1
-            import traceback
-            traceback.print_exc()
+            if debug:
+                import traceback
+                traceback.print_exc()
 
     print()
-    print(f"Tests: {passed} passed, {failed} failed")
+    print("=" * 50)
+    print(f"Results: {passed} passed, {failed} failed out of {total_tests} tests")
     return 0 if failed == 0 else 1
 
 

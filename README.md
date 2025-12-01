@@ -4,7 +4,7 @@
 
 # Gopa Programming Language
 
-### (aka **GopaLang**, or just **Gopa**)
+### (or just **Gopa**)
 
 A tiny, readable programming language that feels like English — built so **kids can code**, but still powerful enough to build real stuff.
 
@@ -49,26 +49,44 @@ it's designed to be:
 
 > requirements: python 3.11+
 
-clone + run:
+### install (super quick)
 
+**Option 1: Install script (recommended)**
 ```bash
-python -m gopa_lang.gopa run examples/hello.gopa
+git clone https://github.com/gopa-lang/gopa.git && cd gopa && bash install.sh
 ```
 
-run with permissions (safe defaults are off):
-
+**Option 2: Use directly (no install needed)**
 ```bash
-python -m gopa_lang.gopa run examples/weather.gopa --perm network
-
-python -m gopa_lang.gopa run examples/server.gopa --perm server,network
-
-python -m gopa_lang.gopa run examples/cron.gopa --forever --perm cron,timers
+git clone https://github.com/gopa-lang/gopa.git
+cd gopa
+./gopa test
+./gopa run examples/hello.gopa
 ```
 
-run tests:
+**Windows:**
+```powershell
+git clone https://github.com/gopa-lang/gopa.git
+cd gopa
+.\install.bat
+```
+
+### use
 
 ```bash
-python -m gopa_lang.gopa test
+# Run a program
+gopa run examples/hello.gopa
+
+# Run tests
+gopa test
+
+# Start REPL
+gopa repl
+
+# With permissions
+gopa run examples/weather.gopa --perm network
+gopa run examples/server.gopa --perm server,network
+gopa run examples/cron.gopa --forever --perm cron,timers
 ```
 
 ---
@@ -113,7 +131,6 @@ end
 ## getting help
 
 * open an issue if something's broken or unclear
-* discussions: [https://gopa.dev/community](https://gopa.dev/community) (placeholder)
 * if you found a security issue, please follow [SECURITY.md](SECURITY.md)
 
 ---
