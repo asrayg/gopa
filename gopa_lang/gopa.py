@@ -130,6 +130,9 @@ def run_repl(permissions: Permissions, debug: bool = False):
 
 def run_tests():
     """Run conformance tests."""
+    import time
+    start_time = time.time()
+    
     test_dir = Path(__file__).parent.parent / 'tests'
     cases_dir = test_dir / 'cases'
     expected_dir = test_dir / 'expected'
@@ -225,9 +228,11 @@ def run_tests():
                 import traceback
                 traceback.print_exc()
 
+    elapsed = time.time() - start_time
     print()
     print("=" * 50)
     print(f"Results: {passed} passed, {failed} failed out of {total_tests} tests")
+    print(f"Time: {elapsed:.2f}s")
     return 0 if failed == 0 else 1
 
 
