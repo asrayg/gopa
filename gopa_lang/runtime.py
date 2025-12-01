@@ -1,6 +1,6 @@
 """Runtime environment for Gopa interpreter."""
 
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 from copy import deepcopy
 
 

@@ -1,7 +1,5 @@
 """Permission sandbox system for Gopa."""
 
-from typing import Set
-
 
 class Permissions:
     """Manages permissions for Gopa runtime."""

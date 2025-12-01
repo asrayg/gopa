@@ -1,9 +1,9 @@
+# ruff: noqa: F405
 """Interpreter for Gopa AST."""
 
 import sys
-import json
 import time
-from typing import Any, Optional, List, Dict
+from typing import Any, List
 from .runtime import Runtime
 from .permissions import Permissions
 from .builtin_stdlib import BUILTINS
@@ -505,7 +505,7 @@ class Interpreter:
                 return self.evaluate_function_call(node)
             else:
                 raise RuntimeError(f"Unknown statement type: {type(node)}")
-        except (BreakSignal, ContinueSignal, StopSignal, ReturnSignal) as e:
+        except (BreakSignal, ContinueSignal, StopSignal, ReturnSignal):
             raise
         except RuntimeError as e:
             if self.debug:
@@ -831,7 +831,7 @@ class Interpreter:
         if self.graphics:
             self.graphics.register_mouse_click(canvas, node.body, self)
         else:
-            print(f"[event] registered mouse click handler for canvas", file=self.output_stream)
+            print("[event] registered mouse click handler for canvas", file=self.output_stream)
 
     def execute_wait(self, node: WaitStatement):
         self.permissions.check_timers()

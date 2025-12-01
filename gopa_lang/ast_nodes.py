@@ -1,7 +1,7 @@
 """AST node definitions for Gopa."""
 
-from abc import ABC, abstractmethod
-from typing import List, Optional, Any
+from abc import ABC
+from typing import List, Optional
 
 
 class ASTNode(ABC):

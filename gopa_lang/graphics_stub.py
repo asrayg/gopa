@@ -2,7 +2,7 @@
 
 import time
 import threading
-from typing import List, Dict, Callable, Any, Optional
+from typing import List, Dict, Any, Optional
 from datetime import datetime
 import re
 
@@ -285,7 +285,7 @@ class GraphicsStub:
             'body': body,
             'interpreter': interpreter
         })
-        print(f"[event] registered mouse click handler", file=self.output_stream)
+        print("[event] registered mouse click handler", file=self.output_stream)
 
     def simulate_click(self, x: int, y: int):
         """Simulate a mouse click."""

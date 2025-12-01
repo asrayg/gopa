@@ -2,7 +2,7 @@
 
 import random
 import math
-from typing import List, Any, Callable
+from typing import List, Any
 
 
 def builtin_random() -> float:
